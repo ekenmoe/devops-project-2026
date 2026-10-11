@@ -1,5 +1,5 @@
 ---
-name: Complete Devops Project Pipeline
+name: Complete DevOps Project Pipeline
 
 on:
   push:
@@ -9,23 +9,62 @@ on:
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
       - name: Set Short SHA
         run: |
-          echo "SHORT_SHA=$(echo ${GITHUB_SHA} | CUT -c1-7)" >> $GITHUB_ENV
+          SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c1-7)
+          echo "SHORT_SHA=$SHORT_SHA" >> "$GITHUB_ENV"
+          echo "Short SHA: $SHORT_SHA"
+
+      - name: Login to DockerHub
+        run: |
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+            --password-stdin
+
       - name: Build Docker Image
         run: |
           docker build -t ekenmoe/devops-project-2026:${{ env.SHORT_SHA }} .
-      - name: Login to Dockerhub
-        run : |
-          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-      - name: Push to Dockerhub
+
+      - name: Push to DockerHub
         run: |
           docker push ekenmoe/devops-project-2026:${{ env.SHORT_SHA }}
 
-          
+
+
+
+
+# name: Complete Devops Project Pipeline
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build_and_push:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v2
+#       - name: Set Short SHA
+#         run: |
+#           echo "SHORT_SHA=$(echo ${GITHUB_SHA} | CUT -c1-7)" >> $GITHUB_ENV
+#       - name: Build Docker Image
+#         run: |
+#           docker build -t ekenmoe/devops-project-2026:${{ env.SHORT_SHA }} .
+#       - name: Login to Dockerhub
+#         run : |
+#           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+#       - name: Push to Dockerhub
+#         run: |
+#           docker push ekenmoe/devops-project-2026:${{ env.SHORT_SHA }}
+
+
           
           
           
