@@ -1,4 +1,298 @@
-.terraform/
-*.tfstate
-*.tfstate*
+# ============================================================
+# GENERAL OS / EDITOR FILES
+# ============================================================
 
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.settings/
+
+# ============================================================
+# SECRETS / ENVIRONMENT VARIABLES
+# ============================================================
+
+.env
+.env.*
+!.env.example
+!.env.sample
+
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Secret files - review before committing any credentials
+secrets/
+private/
+credentials/
+secrets.yml
+secrets.yaml
+vault-password-file
+.vault_pass
+
+# ============================================================
+# TERRAFORM
+# ============================================================
+
+# Terraform working directories
+.terraform/
+**/.terraform/*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate.backup
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Terraform plans (may contain sensitive data)
+*.tfplan
+*.plan
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI configuration (may contain credentials)
+.terraformrc
+terraform.rc
+
+# Local Terraform variable files
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Keep example variable files
+!terraform.tfvars.example
+!terraform.tfvars.sample
+!*.auto.tfvars.example
+
+# ============================================================
+# TERRAFORM / OPEN TOFU LOCK FILE
+# ============================================================
+
+# DO NOT ignore .terraform.lock.hcl.
+# Commit it to pin provider selections consistently.
+
+# ============================================================
+# ANSIBLE
+# ============================================================
+
+# Ansible retry files
+*.retry
+
+# Ansible logs
+ansible.log
+
+# Ansible Vault password files
+.vault_pass
+vault-password-file
+
+# Generated Ansible collections and roles
+collections/
+roles/
+
+# Keep requirements files that define dependencies
+!requirements.yml
+!requirements.yaml
+
+# ============================================================
+# KUBERNETES
+# ============================================================
+
+# Local kubeconfig files
+kubeconfig
+kubeconfig.*
+.kube/
+
+# Local cluster data
+.minikube/
+.kind/
+.k3d/
+
+# Generated Kubernetes manifests
+# Do not ignore YAML manifests globally.
+
+# ============================================================
+# HELM
+# ============================================================
+
+# Helm local repository cache and configuration
+.helm/
+helm-cache/
+
+# Helm packaged charts
+*.tgz
+
+# Helm generated release output
+helm-rendered.yaml
+rendered-manifests.yaml
+
+# ============================================================
+# DOCKER
+# ============================================================
+
+# Docker Compose local overrides
+docker-compose.override.yaml
+docker-compose.override.yml
+
+# Local Docker environment files
+.docker/
+
+# Build output
+docker-build/
+
+# ============================================================
+# PYTHON
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Test and coverage output
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# ============================================================
+# NODE.JS / JAVASCRIPT
+# ============================================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build output
+.next/
+.nuxt/
+dist/
+coverage/
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ============================================================
+# JAVA / MAVEN / GRADLE
+# ============================================================
+
+target/
+.gradle/
+build/
+*.class
+*.jar
+*.war
+*.ear
+
+# ============================================================
+# GO
+# ============================================================
+
+vendor/
+*.test
+coverage.out
+
+# ============================================================
+# BUILD / TEST / LOG OUTPUT
+# ============================================================
+
+logs/
+*.log
+tmp/
+temp/
+.cache/
+coverage/
+test-results/
+reports/
+
+# ============================================================
+# CI/CD AND LOCAL TOOLING
+# ============================================================
+
+# Local CLI configuration and caches
+.terraform.d/
+.ansible/
+.aws-sam/
+.serverless/
+
+# Local environment-specific configuration
+config.local.*
+*.local.tfvars
+
+# ============================================================
+# GENERATED ARTIFACTS / BACKUPS
+# ============================================================
+
+*.bak
+*.old
+*.orig
+*.backup
+*.tmp
+*.swp
+*.dump
+*.sql.gz
+
+# ============================================================
+# LARGE GENERATED FILES
+# ============================================================
+
+*.iso
+*.img
+*.qcow2
+*.vmdk
+*.ova
+*.tar
+*.tar.gz

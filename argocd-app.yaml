@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devops-project-2026
+  namespace: argocd
+
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/ekenmoe/devops-project-2026"
+    targetREVISION: HEAD
+    path: complete-project-2026-time-printer
+  destination:
+    server: "http://kubernetes.default.svc"
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  
+

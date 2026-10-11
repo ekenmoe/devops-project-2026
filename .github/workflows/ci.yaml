@@ -34,6 +34,18 @@ jobs:
         run: |
           docker push ekenmoe/devops-project-2026:${{ env.SHORT_SHA }}
 
+      - name: Configure Git Authentication
+        run: |
+          git config --local user.email "emilekenmoe@gmail.com"
+          git config --local user.name "Emile Kenmoe"
+
+      - name: Update Helm Chart with new image tag.
+        run: |
+          sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./complete-project-2026-time-printer/values.yaml
+          git add ./complete-project-2026-time-printer/values.yaml
+          git commit -m "Updated image tage to ${{ env.SHORT_SHA }}"
+          git push
+
 
 
 
