@@ -1,6 +1,6 @@
 image: 
   repository: ekenmoe/devops-project-2026
-  tag: latest
+  tag: 48b6d25
   pullPolicy: IfNotPresent
 
 service:
@@ -35,7 +35,7 @@ autoscaling:
 #   # This sets the pull policy for images.
 #   pullPolicy: IfNotPresent
 #   # Overrides the image tag whose default is the chart appVersion.
-#   tag: ""
+#   tag: 48b6d25
 
 # # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 # imagePullSecrets: []
